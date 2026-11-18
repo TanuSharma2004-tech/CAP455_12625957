@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <fstream>
 #include <cstring>
@@ -229,9 +228,7 @@ int main() {
              << "3. Register Project\n4. View Projects\n"
              << "5. Audit Part\n6. Search Part\n"
              << "7. Update Part\n8. Exit\nChoice: ";
-
         cin >> ch;
-
         switch (ch) {
 
         case 1: {
@@ -270,7 +267,6 @@ int main() {
                 cout << "Invalid quantity!\n";
                 break;
             }
-
             cin.ignore();
             cout << "Location: ";
             cin.getline(loc, 20);
@@ -284,7 +280,6 @@ int main() {
             cout << "Part added successfully!\n";
             break;
         }
-
         case 2:
             cout << "\nTotal Parts: " << Part::totalPartsCount << endl;
             for (int i = 0; i < pc; i++) parts[i].display();
@@ -299,7 +294,6 @@ int main() {
 
             int id;
             char name[40], lead[30];
-
             cout << "Project ID: ";
             cin >> id;
 
@@ -307,7 +301,6 @@ int main() {
                 cout << "Invalid or duplicate ID!\n";
                 break;
             }
-
             cin.ignore();
             cout << "Project Title: ";
             cin.getline(name, 40);
@@ -321,7 +314,6 @@ int main() {
             cout << "Project registered!\n";
             break;
         }
-
         case 4:
             for (int i = 0; i < rc; i++) projects[i].display();
             if (!rc) cout << "No projects!\n";
@@ -333,14 +325,12 @@ int main() {
 
             cout << "Part ID: ";
             cin >> id;
-
             for (int i = 0; i < pc; i++)
                 if (parts[i].getId() == id) {
                     auditPart(&parts[i]);
                     found = true;
                     break;
                 }
-
             if (!found) cout << "Part not found!\n";
             break;
         }
@@ -352,7 +342,6 @@ int main() {
             searchPart(id);
             break;
         }
-
         case 7: {
             int id;
             cout << "Part ID: ";
@@ -360,7 +349,6 @@ int main() {
             updatePart(parts, pc, id);
             break;
         }
-
         case 8:
             cout << "Exiting program!\n";
             break;
@@ -370,6 +358,5 @@ int main() {
         }
 
     } while (ch != 8);
-
     return 0;
 }
